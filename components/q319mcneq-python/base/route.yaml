@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: q319mcneq-python
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: q319mcneq-python 
+  name: q319mcneq-python
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: q319mcneq-python
+    weight: 100 
